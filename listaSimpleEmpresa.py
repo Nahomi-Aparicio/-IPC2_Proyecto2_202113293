@@ -135,7 +135,7 @@ class listaSimpleEmpreza:
         return  self.idPunto
 
     def mostri_trans(self,x):
-        aux=self.inicio
+        aux=self.inicio        
         while aux!=None:
             print('---estas son las transacciones posibles en la empreza')
             if x==aux.id:

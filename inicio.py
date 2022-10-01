@@ -12,9 +12,10 @@ from listaEscritorioInicial import escritorioActivo
 from  listaCliente import ClientesNodo
 from lista_inicialTranse import TranseNodo
 
-ini=listaSimpleInicial()
+
 
 Emp=listaSimpleEmpreza()
+ini=listaSimpleInicial(Emp)
 class Menu:
     def __init__(self):
         self.root=None
@@ -39,17 +40,12 @@ class Menu:
                 self.SeleccionEmpresaMenu()
                 
             elif elegir==2:    
-                    ini.mostrarEs()                 
+                                     
                     Emp.recorriendo()
                     nombre=input('escriba nombre de la empreza si existe')                    
                     Emp.buscarEmpresaByNombre(nombri=nombre)                   
                     #Emp.mostri_trans()
-                                   
-                    j=Emp.lasEmpresas()
-                    k=Emp.lospuntos()
-                    ini.nuevoCliente(IdE=j,Idpu=k)
                     
-                    ini.recorriendo()
             elif elegir==3:
                 self.ManejoMenu()
             elif elegir ==4:
@@ -118,8 +114,12 @@ class Menu:
             elif elegir==4:
                 pass
           
-            elif elegir==5:
-               pass
+            elif elegir==5:                            
+                j=Emp.lasEmpresas()
+                k=Emp.lospuntos()
+                ini.nuevoCliente(IdE=j,Idpu=k)
+                
+                ini.recorriendo()
             elif elegir==6:
                 pass
             elif elegir ==7:

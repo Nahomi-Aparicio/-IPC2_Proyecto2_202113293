@@ -9,13 +9,14 @@ from lista_inicialTranse import TranseNodo
 
 
 from listaSimpleEmpresa import  listaSimpleEmpreza
-idemp=listaSimpleEmpreza()
+
 
 class listaSimpleInicial:   
     
-    def __init__(self):
+    def __init__(self,listaEmpresa):
         self.inicio = Inicial()
         self.fin =  Inicial()
+        self.idemp=listaEmpresa
 
     def ConfiguInicial(self,root2):
         
@@ -84,17 +85,14 @@ class listaSimpleInicial:
             aux.InicialES.recorriendo()
             print(' ')
             aux.clientes.recorriendo()
-            print(' ')   
-                    
+            print(' ')  
             aux=aux.siguiente
         
-
     def nuevoCliente(self,IdE,Idpu):
         aux = self.inicio 
         while aux!=None:
             if IdE== aux.IdEmpreza and Idpu==aux.idPunto: 
-                idemp.mostri_trans(x=IdE)
-                
+                                
                 print('---------------------------------------')
                 print('| ingrese sus datos para la solicitud |')
                 print('---------------------------------------')
@@ -104,15 +102,14 @@ class listaSimpleInicial:
                     print('no hay empreza')                
                 else:
                     NuevoCli=ClientesNodo(self.nuevoDpi,self.nuevoNombre)
-                    aux.clientes.Agregar(NuevoCli)
-                                       
+                    aux.clientes.Agregar(NuevoCli)                                       
                     while True:
+                        self.idemp.mostri_trans(x=IdE)
                         deseo=input('Desea agregar una transaccion? (s/n): ')
                         if deseo=='s':                                    
                             self.a=input('Ingrese el id de la transaccion: ')
                             self.b=input('Ingrese la cantidad: ')
-                            NuevoCli.transs.Agregar(TranseNodo(self.a,self.b))
-                            
+                            NuevoCli.transs.Agregar(TranseNodo(self.a,self.b))                            
                         elif deseo=='n':
                             break
                         else:
@@ -126,6 +123,7 @@ class listaSimpleInicial:
                 print('---------------------------------------')
             else:
                break
+
     def mostrarEs(self):
         aux = self.inicio
         while aux!=None:
