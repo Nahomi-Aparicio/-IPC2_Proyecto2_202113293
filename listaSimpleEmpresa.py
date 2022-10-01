@@ -125,7 +125,6 @@ class listaSimpleEmpreza:
      
 
     def limpiar(self):
-       
             self.inicio = None
             self.fin =  None
  
