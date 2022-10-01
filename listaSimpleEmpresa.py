@@ -134,14 +134,16 @@ class listaSimpleEmpreza:
     def lospuntos(self):
         return  self.idPunto
 
-    def mostri_trans(self):
+    def mostri_trans(self,x):
         aux=self.inicio
         while aux!=None:
             print('---estas son las transacciones posibles en la empreza')
-
-            aux.listaTrans.recorriendo()
-            aux=aux.siguiente
-            break
+            if x==aux.id:
+                aux.listaTrans.recorriendo()
+                aux=aux.siguiente
+            else:
+                print('no existe la empreza')
+                break
         
 
 

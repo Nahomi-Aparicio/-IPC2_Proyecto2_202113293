@@ -15,10 +15,6 @@ from lista_inicialTranse import TranseNodo
 ini=listaSimpleInicial()
 
 Emp=listaSimpleEmpreza()
-
-
-
-
 class Menu:
     def __init__(self):
         self.root=None
@@ -47,7 +43,7 @@ class Menu:
                     Emp.recorriendo()
                     nombre=input('escriba nombre de la empreza si existe')                    
                     Emp.buscarEmpresaByNombre(nombri=nombre)                   
-                    Emp.mostri_trans()
+                    #Emp.mostri_trans()
                                    
                     j=Emp.lasEmpresas()
                     k=Emp.lospuntos()

@@ -93,6 +93,7 @@ class listaSimpleInicial:
         aux = self.inicio 
         while aux!=None:
             if IdE== aux.IdEmpreza and Idpu==aux.idPunto: 
+                idemp.mostri_trans(x=IdE)
                 
                 print('---------------------------------------')
                 print('| ingrese sus datos para la solicitud |')
