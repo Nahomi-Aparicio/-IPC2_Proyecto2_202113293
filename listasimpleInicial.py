@@ -1,6 +1,7 @@
 
 
 from xml.dom import minidom as MD
+from Escritorio import Escritorio
 from listadoInicial import Inicial
 
 from listaEscritorioInicial import escritorioActivo
@@ -11,7 +12,8 @@ from lista_inicialTranse import TranseNodo
 from listaSimpleEmpresa import  listaSimpleEmpreza
 
 
-class listaSimpleInicial:   
+class listaSimpleInicial:
+    no_act= listaSimpleEmpreza()
     
     def __init__(self,listaEmpresa):
         self.inicio = Inicial()
@@ -73,7 +75,6 @@ class listaSimpleInicial:
             self.fin.siguiente = NuevoInicial
             self.fin = NuevoInicial
 
-
     def recorriendo(self):
         aux = self.inicio
         while aux!=None:
@@ -84,10 +85,17 @@ class listaSimpleInicial:
             print(' ')
             aux.InicialES.recorriendo()
             print(' ')
+            #agregar opcion de contar cuantos clientes hay 
             aux.clientes.recorriendo()
-            print(' ')  
+            print(' ')            
             aux=aux.siguiente
-        
+
+
+    def compararEscrito(self):
+        aux=self.inicio
+
+   
+ #ya esta agregar nuevo cliente        
     def nuevoCliente(self,IdE,Idpu):
         aux = self.inicio 
         while aux!=None:
@@ -117,12 +125,41 @@ class listaSimpleInicial:
                             print('| opcion no valida                    |')
                             print('---------------------------------------')                  
                     
-                aux=aux.siguiente
+                
                 print('---------------------------------------')
                 print('| se a agregado una nueva solicitud   |')
                 print('---------------------------------------')
-            else:
-               break
+            aux=aux.siguiente
+            self.idpu=Idpu
+            self.ide=IdE
+
+
+
+    
+    def mostrarEscritorios(self,p,o):
+        aux = self.inicio
+        while aux!=None:
+            if p==aux.IdEmpreza and o==aux.idPunto:
+                for x in range(4): 
+                    self.idemp.opteniendotodosEs(emp=p,j=o)
+                    a=self.idemp.getA()
+                    aux.InicialES.siexiste(id2=a)
+                    aux.InicialES.imprimir_lista()
+                       
+                    
+
+                
+            aux=aux.siguiente
+ 
+
+
+
+
+
+
+
+
+
 
     def mostrarEs(self):
         aux = self.inicio
@@ -131,9 +168,42 @@ class listaSimpleInicial:
             aux=aux.siguiente
         
 
+#escrotorios y clientes  muestro el ultimo escritorio y lo imprimo , aqui elimino  
+    def ultimoEs(self,idpu,ide):        
+        aux = self.inicio
+       
+        while aux!=None:
+            if idpu== aux.IdEmpreza and ide==aux.idPunto:
+                for x in range(4):
+                    print('---------')
+
+                    #quitar aux.clientes no va aqui 
+                    aux.clientes.imprimirCliente() 
+                    aux.clientes.primerCli() 
+                
+                """ a=aux.InicialES.ultimoNodo().getId()
+                print('desactivando escritorio',a)                
+                aux.InicialES.elimini(key=a)
+                aux.InicialES.imprimir_lista()"""               
+
+            aux=aux.siguiente
+
    
 
-            
+
+
+
+
+
+    """def mostrarCli(self):
+
+        aux = self.inicio
+        while aux!=None:
+            if IdE== aux.IdEmpreza and Idpu==aux.idPunto: 
+                aux.clientes.primerCli() 
+                aux.clientes.imprimirCliente()       
+            aux=aux.siguiente"""
+                
 
 
     

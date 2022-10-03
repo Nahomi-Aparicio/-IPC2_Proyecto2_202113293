@@ -41,9 +41,9 @@ class listaSimpleTranses:
             print('ID:',aux.idTra)
             print('Nombre:',aux.nombretra)
             print('tiempo Atencion:',aux.TiempoTra)
-            print(' ')
-           
+            print(' ')           
             aux=aux.siguiente
+            
         
     
    

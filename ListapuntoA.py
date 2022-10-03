@@ -15,20 +15,7 @@ class ListaSimpleAtencion:
             self.fin.siguiente = NuevoPuntoAtencion
             self.fin = NuevoPuntoAtencion
 
-    def impri(self):
-        aux = self.inicio
-        cadena=""
-        while True:
-            if aux.idA is not None:
-                cadena += "("+aux.idA+ "\n" + aux.nombre+ "\n " + aux.direccion+ "\n " + ") "
-                if aux.siguiente is not None:
-                    aux = aux.siguiente
-                    cadena+="\n"
-                else:
-                    break
-            else:
-                break
-        print(cadena)
+   
 
     def recorri (self):
         aux = self.inicio
@@ -45,17 +32,39 @@ class ListaSimpleAtencion:
 
     def buscarPuntoNombre(self,puntito):
         aux= self.inicio
-        while aux!=None:
-                           
+        while aux!=None:                           
                 if puntito== aux.idA:
                     print('---------------------------------------------')
                     print('| Se a elejido el punto de atencion empresa |')
                     print('---------------------------------------------')
                     print('ID:',aux.idA)
                     print('Nombre:',aux.nombre)
-                    print('Abreviacion:',aux.direccion)
+                    print('direcion:',aux.direccion)
                     
-                    aux=aux.siguiente
+                aux=aux.siguiente
                     
-                else:
-                    break
+                
+
+    def buscarNombre(self,p):
+        aux= self.inicio
+        while aux!=None: 
+            if p== aux.idA:  
+                a=aux.Escritorios.optener_ultimo().getId()
+                print(a)
+            aux=aux.siguiente
+        return a
+
+
+    def opteniendotodosEScri(self,p):
+        aux = self.inicio
+        while aux!=None:
+            if p== aux.idA:                
+                a=aux.Escritorios.ultimoNodo().getId()                
+                self.a=a                             
+            aux=aux.siguiente
+        
+
+    def getA(self):
+        return self.a
+
+  

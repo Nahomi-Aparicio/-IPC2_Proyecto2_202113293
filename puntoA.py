@@ -1,4 +1,5 @@
 from ListaSimpEscritorio import ListaSimpleEscritorio
+from listaEscritorioInicial import escritoriosActivos
 class PuntoAtencion:
     def __init__(self,idA=None, nombre=None, direccion=None):
         self.idA=idA
@@ -25,7 +26,7 @@ class PuntoAtencion:
     def setDireccion(self,direccion):
         self.direccion=direccion
 
-    
+
 
     
        

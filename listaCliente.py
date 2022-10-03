@@ -28,19 +28,34 @@ class listaSimpleClientes:
 
     def recorriendo(self):
         aux = self.inicio
-        while aux!=None:
-            
+        contcli=0
+        while aux!=None:            
             print('-------cliente-----')
             print('DPI:',aux.dpi)
             print('Nombre:',aux.nombre)
-            aux.transs.recorriendo()
-           
+            contcli+=1
+            aux.transs.recorriendo()           
             print(' ')
-            aux=aux.siguiente
+            aux=aux.siguiente        
+        print(contcli)
+    
 
-    def buscar(self):
-        return ClientesNodo()
-       
-                
+    def imprimirCliente(self):
+        nodo=self.inicio
+        while nodo!=None:            
+            print('Nombre:',nodo.nombre)
+            nodo=nodo.siguiente
+
+
+
+
+    def primerCli(self):
+        aux = self.inicio
+        self.inicio=self.inicio.siguiente
+        return aux
+
+   
+        
+
 
 

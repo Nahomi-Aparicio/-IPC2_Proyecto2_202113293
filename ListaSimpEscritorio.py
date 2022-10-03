@@ -40,7 +40,18 @@ class ListaSimpleEscritorio:
             print('ID:',aux.ied)
             print('Identificacion:',aux.identificacionEs)
             print('Encargado:',aux.encargadoEs)
-            print(" ")          
-
+            print(" ") 
             aux=aux.siguiente
-           
+
+    def optener_ultimo(self):
+        aux = self.inicio       
+        while aux.siguiente != None:            
+            aux = aux.siguiente
+        return aux
+
+
+    def ultimoNodo(self):
+        aux = self.inicio       
+        self.inicio=self.inicio.siguiente                           
+        return aux
+        

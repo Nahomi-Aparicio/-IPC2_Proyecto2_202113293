@@ -1,5 +1,6 @@
 from ListapuntoA import ListaSimpleAtencion
 from listaTranses import listaSimpleTranses
+
 class Empreza:
     def __init__(self,id=None,nombre=None,abrev=None):
         self.id = id
@@ -28,6 +29,4 @@ class Empreza:
         self.abrev=abrev
 
 
-
-
-       
+  

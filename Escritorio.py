@@ -4,6 +4,7 @@ class Escritorio:
         self.identificacionEs=identificacionEs
         self.encargadoEs=encargadoEs
         self.siguiente=None
+        self.activar=False
 
 
     def getId(self):
@@ -25,4 +26,3 @@ class Escritorio:
         self.encargadoEs=encargadoEs
 
     
-        

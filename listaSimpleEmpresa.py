@@ -119,9 +119,8 @@ class listaSimpleEmpreza:
                 aux.listaPuntoAtencion.buscarPuntoNombre(puntito=punti)
                 self.idEmpresa=aux.id
                 self.idPunto=punti
-                aux=aux.siguiente                
-            else:
-                break
+            aux=aux.siguiente                
+          
      
 
     def limpiar(self):
@@ -135,18 +134,40 @@ class listaSimpleEmpreza:
         return  self.idPunto
 
     def mostri_trans(self,x):
-        aux=self.inicio        
+        aux=self.inicio 
+        print('---estas son las transacciones posibles en la empreza')       
         while aux!=None:
-            print('---estas son las transacciones posibles en la empreza')
+            
             if x==aux.id:
                 aux.listaTrans.recorriendo()
-                aux=aux.siguiente
-            else:
-                print('no existe la empreza')
-                break
-        
+            aux=aux.siguiente
+            
+
+    def buscaNombre(self,pi,k):
+        aux= self.inicio        
+        while aux!=None:
+            if pi== aux.id:
+                aux.listaPuntoAtencion.buscarNombre(p=k)
+            aux=aux.siguiente 
+      
+
+    def opteniendotodosEs(self,emp,j):
+        aux= self.inicio 
+              
+        while aux!=None:
+            if emp== aux.id:
+                aux.listaPuntoAtencion.opteniendotodosEScri(p=j)               
+                a=aux.listaPuntoAtencion.getA()                
+                self.a=a
+            aux=aux.siguiente
+            
+
+    def getA(self):
+        return self.a
 
 
+    
+               
 
              
         
