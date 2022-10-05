@@ -1,3 +1,4 @@
+import os
 from lista_inicialTranse import listaSimpleTransess
 from lista_inicialTranse import TranseNodo
 class ClientesNodo:
@@ -27,17 +28,15 @@ class listaSimpleClientes:
 
 
     def recorriendo(self):
-        aux = self.inicio
-        contcli=0
+        aux = self.inicio        
         while aux!=None:            
             print('-------cliente-----')
             print('DPI:',aux.dpi)
-            print('Nombre:',aux.nombre)
-            contcli+=1
+            print('Nombre:',aux.nombre)           
             aux.transs.recorriendo()           
             print(' ')
             aux=aux.siguiente        
-        print(contcli)
+        
     
 
     def imprimirCliente(self):
@@ -47,12 +46,32 @@ class listaSimpleClientes:
             nodo=nodo.siguiente
 
 
-
-
     def primerCli(self):
         aux = self.inicio
         self.inicio=self.inicio.siguiente
         return aux
+    
+    def mostrarclientes(self):
+        
+        text = 'cli[shape=plaintext ,label =<<TABLE><TR><TD>CLIENTES EN LA COLA</TD></TR>'
+        aux = self.inicio
+        while aux!=None:            
+            
+            text += '<TR><TD>'+'DPI:'+str(aux.dpi)+'  Nombre:'+str(aux.nombre)+'</TD></TR>'
+        
+            aux=aux.siguiente
+        text += '</TABLE>>];\n'
+       
+        self.cli=text
+        
+
+    def getText(self):
+        return self.cli
+
+        
+       
+
+
 
    
         

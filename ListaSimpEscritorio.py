@@ -18,30 +18,26 @@ class ListaSimpleEscritorio:
             self.fin.siguiente = NuevoEscritorio
             self.fin = NuevoEscritorio
 
-    def imprimir(self):
-        aux = self.inicio
-        cadena=""
-        while True:
-            if aux.ied is not None:
-                cadena += "("+aux.ied+ " " + aux.identificacionEs+ " " + aux.encargadoEs+ " " + ") "
-                if aux.siguiente is not None:
-                    aux = aux.siguiente
-                    cadena+="->"
-                else:
-                    break
-            else:
-                break
-        print(cadena)
-
+   
+#def optener numero escritorios
     def rerorriendoEs(self):
+        contarEsc=0
         aux = self.inicio
         while aux!=None:
-            print('-------escritorios--------')
-            print('ID:',aux.ied)
-            print('Identificacion:',aux.identificacionEs)
-            print('Encargado:',aux.encargadoEs)
-            print(" ") 
+            contarEsc+=1
+            """print('-------escritorios--------')
+            print('ID:',aux.ied)"""
+            aux.identificacionEs
+            """print('Encargado:',aux.encargadoEs)
+            print(" ") """
             aux=aux.siguiente
+        self.contarEsc=contarEsc
+
+
+    def getContarES(self):
+        return self.contarEsc
+
+  
 
     def optener_ultimo(self):
         aux = self.inicio       
@@ -54,4 +50,11 @@ class ListaSimpleEscritorio:
         aux = self.inicio       
         self.inicio=self.inicio.siguiente                           
         return aux
-        
+
+
+#todos todos los escritorios aqui 
+    def optenerTodos(self):
+        aux = self.inicio
+        self.inicio=self.inicio.siguiente
+        return aux
+

@@ -40,8 +40,14 @@ class ListaSimpleAtencion:
                     print('ID:',aux.idA)
                     print('Nombre:',aux.nombre)
                     print('direcion:',aux.direccion)
-                    
+                    aux.Escritorios.rerorriendoEs()
+                    self.contarEsc=aux.Escritorios.getContarES()                    
                 aux=aux.siguiente
+
+    def getContarES(self):
+        return self.contarEsc
+
+    
                     
                 
 
@@ -67,4 +73,14 @@ class ListaSimpleAtencion:
     def getA(self):
         return self.a
 
-  
+  #optener los escritorios y todos los id 
+    def opteniendoES(self,c):
+        aux = self.inicio
+        while aux!=None:
+            if c== aux.idA:
+                a=aux.Escritorios.optenerTodos().getId()
+                self.co=a
+            aux=aux.siguiente
+        
+    def getCo(self):
+        return self.co

@@ -32,10 +32,16 @@ class escritoriosActivos:
 
     
     def recorriendo(self):
+        cotact=0
         aux = self.inicio
         while aux!=None: 
+            
             aux.idEscritorio
             aux=aux.siguiente
+       
+
+    
+
             
     
     def ultimoNodo(self):
@@ -59,40 +65,36 @@ class escritoriosActivos:
 
     def imprimir_lista(self):
         aux = self.inicio
-        print('------Escritorio Activo-----')
+        cotact=0
+        print('------Escritorio Activos-----')
         while aux!=None:
-            
+            cotact+=1
             print('idEscritorio:',aux.idEscritorio) 
             aux=aux.siguiente
         print('\n')
+        self.contact=cotact
+    def getContar(self):
+        return self.contact
 
     def siexiste(self,id2):
         son_diferentes=0
         aux = self.inicio
-        
         print(id2)
-        while aux!=None:            
-            for i in aux.idEscritorio:                
-                for j in id2:
-                    if i==j:
-                       son_diferentes=1
-                       break
-                    
-            aux=aux.siguiente
-        if son_diferentes==0:
-            print(son_diferentes)
+        while aux!=None:
+                if id2==aux.idEscritorio:
+                    print('holi')
+                    son_diferentes=1
+                    break
+                
+                aux=aux.siguiente
+        if son_diferentes==0:            
             self.Agregar(escritorioActivo(id2))
-            print('se agrego escritorio')
+            print('se agrego escritorio',id2)
         else:
-            print('escritorio ya existe')
-            
-            
-            
-                
-            
-            
-                
-            
-        
+            print('escritorio ya se encuentra activo')
+
+
+#mostrar escrotorios
+   
 
             

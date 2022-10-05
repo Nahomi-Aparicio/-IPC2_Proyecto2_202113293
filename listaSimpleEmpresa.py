@@ -75,20 +75,109 @@ class listaSimpleEmpreza:
             self.fin.siguiente = NuevoEmpreza
             self.fin = NuevoEmpreza
 
-    def imprimir(self):        
-        aux = self.inicio
-        cadena=""        
-        while True:           
-            if aux.id is not None:              
-                cadena += "("+aux.id+ "\n " + aux.nombre+ "\n " + aux.abrev+ "\n " + ") "
-                if aux.siguiente is not None:
-                    aux = aux.siguiente
-                    cadena+="\n"
-                else:
+
+              
+    def creadando_Empreza(self):
+        print("═════════════════════════")        
+        print("║   Creando Empresa     ║")       
+        print("═════════════════════════")
+        son_diferentes=0
+        idNuevo=input('ingrese ID de la empresa:')
+        aux=self.inicio
+        while aux!=None:
+            if idNuevo==aux.id:
+                
+                son_diferentes=1
+            aux=aux.siguiente
+        if son_diferentes==0:
+
+            nombreNuevo=input('ingrese nombre de la empresa:')
+            abrvnueva=input('ingrese abreviatura de la empresa:')
+            
+            
+            nuevoEmpresa=Empreza(idNuevo,nombreNuevo,abrvnueva)
+
+            self.Agregar(nuevoEmpresa)
+
+            print('-------creando punto de atencion-------')
+            idAtencion=input('ingrese ID del punto de Atencion:')
+            nombreAtencion=input('ingrese nombre del punto de Atencion:')
+            direcAtencion=input('ingrese direccion del punto de Atencion:')
+            NuevoAt=PuntoAtencion(idAtencion,nombreAtencion,direcAtencion)
+            nuevoEmpresa.listaPuntoAtencion.Agregar(NuevoAt)
+
+            print('-------creando escritorio-------')
+            idEs=input('ingrese ID del Escritorio:')
+            idEs2=input('ingrese la identificacion  del Escritorio:')
+            EncargEs=input('ingrese encargado del Escritorio:')
+            NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
+            NuevoAt.Escritorios.Agregar(NuevoEscritorio)        
+
+        
+            while True:
+                print('---desea ingresar otro  Escritorio 1, sino 0 ---')
+                ele2= int(input('ingrese una opcion:'))
+                if ele2==1:
+                    print('-------creando escritorio-------')
+                    idEs=input('ingrese ID del Escritorio:')
+                    idEs2=input('ingrese la identificacion  del Escritorio:')
+                    EncargEs=input('ingrese encargado del Escritorio:')
+                    NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
+                    NuevoAt.Escritorios.Agregar(NuevoEscritorio)
+                elif ele2 ==0:
                     break
-            else:
-                break
-        print(cadena)
+                else:
+                    print('elija una opcion valida')
+
+            while True:
+                print('---desea ingresar otro  punto de atencion 1, sino 0 ---')
+                ele= int(input('ingrese una opcion:'))
+                if ele==1:
+
+                    print('-------creando punto de atencion-------')
+                    idAtencion=input('ingrese ID del punto de Atencion:')
+                    nombreAtencion=input('ingrese nombre del punto de Atencion:')
+                    direcAtencion=input('ingrese abreviatura del punto de Atencion:')
+                    NuevoAt=PuntoAtencion(idAtencion,nombreAtencion,direcAtencion)
+                    nuevoEmpresa.listaPuntoAtencion.Agregar(NuevoAt)
+
+                    print('-------creando escritorio-------')
+                    idEs=input('ingrese ID del Escritorio:')
+                    idEs2=input('ingrese la identificacion  del Escritorio:')
+                    EncargEs=input('ingrese encargado del Escritorio:')
+                    NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
+                    NuevoAt.Escritorios.Agregar(NuevoEscritorio)
+                    while True:
+                        print('---desea ingresar otro  Escritorio 1, sino 0 ---')
+                        ele2= int(input('ingrese una opcion:'))
+                        if ele2==1:
+                            print('-------creando escritorio-------')
+                            idEs=input('ingrese ID del Escritorio:')
+                            idEs2=input('ingrese la identificacion  del Escritorio:')
+                            EncargEs=input('ingrese encargado del Escritorio:')
+                            NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
+                            NuevoAt.Escritorios.Agregar(NuevoEscritorio)
+                        elif ele2 ==0:
+                            break
+                        else:
+                            print('elija una opcion valida')
+
+                elif ele ==0:
+                    break
+                else:
+                    print('elija una opcion valida')
+
+            print('------------------------')
+            print('|   Empreza creada     |')
+            print('------------------------')
+            self.recorriendo()
+        else:
+            print('-----------------------------------')
+            print('| ID ya existe, empreza existente |')
+            print('|        Empreza no creada        |')
+            print('-----------------------------------')
+   
+ 
         
     def recorriendo(self):
         aux = self.inicio
@@ -117,10 +206,13 @@ class listaSimpleEmpreza:
                 
                 punti=input('Ingrese el ID del punto de atencion que desea buscar: ')                
                 aux.listaPuntoAtencion.buscarPuntoNombre(puntito=punti)
+                self.ContarES=aux.listaPuntoAtencion.getContarES()
                 self.idEmpresa=aux.id
                 self.idPunto=punti
-            aux=aux.siguiente                
-          
+            aux=aux.siguiente  
+
+    def getotroEs(self):
+        return self.ContarES
      
 
     def limpiar(self):
@@ -135,7 +227,7 @@ class listaSimpleEmpreza:
 
     def mostri_trans(self,x):
         aux=self.inicio 
-        print('---estas son las transacciones posibles en la empreza')       
+               
         while aux!=None:
             
             if x==aux.id:
@@ -151,12 +243,12 @@ class listaSimpleEmpreza:
             aux=aux.siguiente 
       
 
-    def opteniendotodosEs(self,emp,j):
+    def opteniendotodosEs(self,emp,jo):
         aux= self.inicio 
               
         while aux!=None:
             if emp== aux.id:
-                aux.listaPuntoAtencion.opteniendotodosEScri(p=j)               
+                aux.listaPuntoAtencion.opteniendotodosEScri(p=jo)               
                 a=aux.listaPuntoAtencion.getA()                
                 self.a=a
             aux=aux.siguiente
@@ -167,7 +259,23 @@ class listaSimpleEmpreza:
 
 
     
-               
+#optener todoss los escritorios aqui
+
+    def opteniendoEs(self,ed,pu):
+        aux= self.inicio              
+        while aux!=None:
+            if ed== aux.id:
+                aux.listaPuntoAtencion.opteniendotodosEScri(p=pu)               
+                a=aux.listaPuntoAtencion.getA()                
+                self.escri=a
+            aux=aux.siguiente
+            
+
+    def getEscri(self):
+        return self.escri
+
+
+
 
              
         

@@ -21,6 +21,7 @@ class Menu:
     def __init__(self):
         self.root=None
         self.root2=None
+        self.cont1=0
        
         
 
@@ -42,11 +43,15 @@ class Menu:
                 self.SeleccionEmpresaMenu()
                 
             elif elegir==2:    
-                                     
-                    Emp.recorriendo()
-                    nombre=input('escriba nombre de la empreza si existe')                    
-                    Emp.buscarEmpresaByNombre(nombri=nombre)                   
-                    #Emp.mostri_trans()
+                                    
+                Emp.recorriendo()
+                self.nombre=input('escriba nombre de la empreza si existe: ')                    
+                Emp.buscarEmpresaByNombre(nombri=self.nombre)                   
+                #Emp.mostri_trans()
+                self.ID=Emp.lasEmpresas()
+                self.pu=Emp.lospuntos()
+                self.TEs=Emp.getotroEs()
+                
                     
             elif elegir==3:
                 self.ManejoMenu()
@@ -78,10 +83,11 @@ class Menu:
             elif elegir==2:
                 Emp.leyendo()
                 Emp.Configsis()
+               
                 
                                
             elif elegir==3:
-                self.creadando_Empreza()
+                Emp.creadando_Empreza()
                 pass
             elif elegir ==4:
                 self.leyendo2()
@@ -112,21 +118,18 @@ class Menu:
             elegir= int(input('ingrese una opcion:'))
             if elegir==1:
                 #falta mucho :c
-                j=Emp.lasEmpresas()
-                o=Emp.lospuntos()               
-                Emp.buscaNombre(pi=j,k=o)               
-
-            elif elegir==2:
-                pass
-            elif elegir==3:  #desactivo escritorio falta 
-                j=Emp.lasEmpresas()
-                #o=Emp.lospuntos()
-                co=Emp.lospuntos()
-                #Emp.opteniendotodosEs(emp=l,j=co)
+                ides1=Emp.lasEmpresas()
+                idpu2=Emp.lospuntos()                
+                ini.optEs(ides1,idpu2,self.TEs,nom=self.nombre)
                 
-                ini.mostrarEscritorios(p=j,o=co)
-                """ ini.ultimoEs(j,o)
-                ini.mostrarEs()"""
+            elif elegir==2:
+                self.cont1=1
+                ini.ActivarEs(p=self.ID,oo=self.pu,cont2=self.cont1)
+                
+            elif elegir==3:                             
+                Emp.opteniendotodosEs(emp=self.ID,jo=self.pu)
+                ini.ultimoEs(idpu=self.ID,ide=self.pu)
+                
             elif elegir==4:
                 pass
           
@@ -158,91 +161,7 @@ class Menu:
             return self.root
         return None
 
-                
-    def creadando_Empreza(self):
-        print("═════════════════════════")        
-        print("║   Creando Empresa     ║")       
-        print("═════════════════════════")
-        idNuevo=input('ingrese ID de la empresa:')
-        nombreNuevo=input('ingrese nombre de la empresa:')
-        abrvnueva=input('ingrese abreviatura de la empresa:')
-        
-        nuevoEmpresa=Empreza(idNuevo,nombreNuevo,abrvnueva)        
-        Emp.Agregar(nuevoEmpresa)
-
-        print('-------creando punto de atencion-------')
-        idAtencion=input('ingrese ID del punto de Atencion:')
-        nombreAtencion=input('ingrese nombre del punto de Atencion:')
-        direcAtencion=input('ingrese direccion del punto de Atencion:')
-        NuevoAt=PuntoAtencion(idAtencion,nombreAtencion,direcAtencion)
-        nuevoEmpresa.listaPuntoAtencion.Agregar(NuevoAt)
-
-        print('-------creando escritorio-------')
-        idEs=input('ingrese ID del Escritorio:')
-        idEs2=input('ingrese la identificacion  del Escritorio:')
-        EncargEs=input('ingrese encargado del Escritorio:')
-        NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
-        NuevoAt.Escritorios.Agregar(NuevoEscritorio)        
-
-    
-        while True:
-            print('---desea ingresar otro  Escritorio 1, sino 0 ---')
-            ele2= int(input('ingrese una opcion:'))
-            if ele2==1:
-                print('-------creando escritorio-------')
-                idEs=input('ingrese ID del Escritorio:')
-                idEs2=input('ingrese la identificacion  del Escritorio:')
-                EncargEs=input('ingrese encargado del Escritorio:')
-                NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
-                NuevoAt.Escritorios.Agregar(NuevoEscritorio)
-            elif ele2 ==0:
-                break
-            else:
-                print('elija una opcion valida')
-
-        while True:
-            print('---desea ingresar otro  punto de atencion 1, sino 0 ---')
-            ele= int(input('ingrese una opcion:'))
-            if ele==1:
-
-                print('-------creando punto de atencion-------')
-                idAtencion=input('ingrese ID del punto de Atencion:')
-                nombreAtencion=input('ingrese nombre del punto de Atencion:')
-                direcAtencion=input('ingrese abreviatura del punto de Atencion:')
-                NuevoAt=PuntoAtencion(idAtencion,nombreAtencion,direcAtencion)
-                nuevoEmpresa.listaPuntoAtencion.Agregar(NuevoAt)
-
-                print('-------creando escritorio-------')
-                idEs=input('ingrese ID del Escritorio:')
-                idEs2=input('ingrese la identificacion  del Escritorio:')
-                EncargEs=input('ingrese encargado del Escritorio:')
-                NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
-                NuevoAt.Escritorios.Agregar(NuevoEscritorio)
-                while True:
-                    print('---desea ingresar otro  Escritorio 1, sino 0 ---')
-                    ele2= int(input('ingrese una opcion:'))
-                    if ele2==1:
-                        print('-------creando escritorio-------')
-                        idEs=input('ingrese ID del Escritorio:')
-                        idEs2=input('ingrese la identificacion  del Escritorio:')
-                        EncargEs=input('ingrese encargado del Escritorio:')
-                        NuevoEscritorio=Escritorio(idEs,idEs2,EncargEs)
-                        NuevoAt.Escritorios.Agregar(NuevoEscritorio)
-                    elif ele2 ==0:
-                        break
-                    else:
-                        print('elija una opcion valida')
-
-            elif ele ==0:
-                break
-            else:
-                print('elija una opcion valida')
-
-        print('------------------------')
-        print('|   Empreza creada     |')
-        print('------------------------')
-        Emp.recorriendo()
-
+  
                                
                                
     

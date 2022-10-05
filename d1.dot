@@ -1,0 +1,9 @@
+digraph G{ 
+node [ shape = box ]
+no[ label="nombre de la empreza:  Claro "]
+pu[ label="puntos seleccionado: AMTLN"]
+ac[ label="Escritorios activos: 3" fillcolor="#ffbb3344"]
+in[ label="Escritorios inactivos: 1"fillcolor="red"]
+cli[shape=plaintext ,label =<<TABLE><TR><TD>DPI:2933151161111Nombre: Arturito </TD></TR><TR><TD>DPI:2933151162222Nombre: Bill Gates </TD></TR><TR><TD>DPI:2933151163333Nombre: Dante </TD></TR><TR><TD>DPI:2933151164444Nombre: Freddie Mercuri </TD></TR><TR><TD>DPI:29331511655555Nombre: Henry Ford </TD></TR></TABLE>>];
+ac -> in  [ style=invis ]no -> pu  [ style=invis ]pu -> ac  [ style=invis ]in -> cli  [ style=invis ]
+}

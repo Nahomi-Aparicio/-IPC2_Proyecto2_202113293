@@ -1,63 +1,82 @@
-
 <listadoInicial>
-<configInicial id="21" idEmpresa="25" idPunto="2">
+<configInicial id="SIMULACION1" idEmpresa="BNR" idPunto="VN">
 <escritoriosActivos>
-<escritorio idEscritorio="1"/>
-<escritorio idEscritorio="2"/>
-
+<escritorio idEscritorio="B10"/>
+<escritorio idEscritorio="A20"/>
 </escritoriosActivos>
 <listadoClientes>
-<cliente dpi="145587">
-<nombre> Cristiano Ronaldo </nombre>
+<cliente dpi="2933151161111">
+<nombre> Arturito </nombre>
 <listadoTransacciones>
-<transaccion idTransaccion="249" cantidad="2300"/>
-<transaccion idTransaccion="249" cantidad="1240"/>
+<transaccion idTransaccion="DEEF" cantidad="2"/>
 </listadoTransacciones>
 </cliente>
-<cliente dpi="101002">
-<nombre> Zidane </nombre>
+<cliente dpi="2933151162222">
+<nombre> Bill Gates </nombre>
 <listadoTransacciones>
-<transaccion idTransaccion="249" cantidad="2800"/>
-<transaccion idTransaccion="249" cantidad="100"/>
+<transaccion idTransaccion="DEEF" cantidad="1"/>
 </listadoTransacciones>
 </cliente>
-<cliente dpi="353011">
-<nombre> Lio Messi </nombre>
+<cliente dpi="2933151163333">
+<nombre> Dante </nombre>
 <listadoTransacciones>
-<transaccion idTransaccion="249" cantidad="2800"/>
-<transaccion idTransaccion="249" cantidad="100"/>
+<transaccion idTransaccion="DEEF" cantidad="1"/>
 </listadoTransacciones>
 </cliente>
-<cliente dpi="3111">
-<nombre> Jude Bellingham</nombre>
+<cliente dpi="2933151164444">
+<nombre> Freddie Mercuri </nombre>
 <listadoTransacciones>
-<transaccion idTransaccion="249" cantidad="2800"/>
-<transaccion idTransaccion="249" cantidad="100"/>
+<transaccion idTransaccion="APCU" cantidad="1"/>
+<transaccion idTransaccion="DEEF" cantidad="1"/>
+<transaccion idTransaccion="COSE" cantidad="1"/>
+</listadoTransacciones>
+</cliente>
+<cliente dpi="29331511655555">
+<nombre> Henry Ford </nombre>
+<listadoTransacciones>
+<transaccion idTransaccion="COCH" cantidad="2"/>
 </listadoTransacciones>
 </cliente>
 </listadoClientes>
 </configInicial>
-<configInicial id="21" idEmpresa="28" idPunto="3">
+<configInicial id="SIMULACION2" idEmpresa="CLR" idPunto="AMTLN">
 <escritoriosActivos>
-<escritorio idEscritorio="1"/>
-<escritorio idEscritorio="3"/>
-
+<escritorio idEscritorio="J600"/>
+<escritorio idEscritorio="K500"/>
+<escritorio idEscritorio="SIUU"/>
 </escritoriosActivos>
 <listadoClientes>
-<cliente dpi="145587">
-<nombre> Cristiano Ronaldo </nombre>
+<cliente dpi="2933151161111">
+<nombre> Arturito </nombre>
 <listadoTransacciones>
-<transaccion idTransaccion="249" cantidad="2300"/>
-<transaccion idTransaccion="249" cantidad="1240"/>
+<transaccion idTransaccion="COCA" cantidad="1"/>
 </listadoTransacciones>
 </cliente>
-<cliente dpi="101002">
-<nombre> Zidane </nombre>
+<cliente dpi="2933151162222">
+<nombre> Bill Gates </nombre>
 <listadoTransacciones>
-<transaccion idTransaccion="249" cantidad="2800"/>
-<transaccion idTransaccion="249" cantidad="100"/>
+<transaccion idTransaccion="CASE" cantidad="1"/>
 </listadoTransacciones>
-
+</cliente>
+<cliente dpi="2933151163333">
+<nombre> Dante </nombre>
+<listadoTransacciones>
+<transaccion idTransaccion="PAME" cantidad="1"/>
+<transaccion idTransaccion="COPR" cantidad="1"/>
+</listadoTransacciones>
+</cliente>
+<cliente dpi="2933151164444">
+<nombre> Freddie Mercuri </nombre>
+<listadoTransacciones>
+<transaccion idTransaccion="COCA" cantidad="1"/>
+<transaccion idTransaccion="COPR" cantidad="3"/>
+</listadoTransacciones>
+</cliente>
+<cliente dpi="29331511655555">
+<nombre> Henry Ford </nombre>
+<listadoTransacciones>
+<transaccion idTransaccion="COCA" cantidad="1"/>
+</listadoTransacciones>
 </cliente>
 </listadoClientes>
 </configInicial>

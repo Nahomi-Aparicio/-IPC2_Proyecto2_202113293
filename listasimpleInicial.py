@@ -1,5 +1,6 @@
 
 
+import os
 from xml.dom import minidom as MD
 from Escritorio import Escritorio
 from listadoInicial import Inicial
@@ -77,6 +78,7 @@ class listaSimpleInicial:
 
     def recorriendo(self):
         aux = self.inicio
+        
         while aux!=None:
             print('════════════listadoInicial════════════')
             print('ID:',aux.id)
@@ -84,12 +86,13 @@ class listaSimpleInicial:
             print('idPunto:',aux.idPunto)
             print(' ')
             aux.InicialES.recorriendo()
-            print(' ')
-            #agregar opcion de contar cuantos clientes hay 
-            aux.clientes.recorriendo()
             print(' ')            
+            #agregar opcion de contar cuantos clientes hay 
+            
+            aux.clientes.recorriendo()
+            print(' ')
             aux=aux.siguiente
-
+        
 
     def compararEscrito(self):
         aux=self.inicio
@@ -97,9 +100,11 @@ class listaSimpleInicial:
    
  #ya esta agregar nuevo cliente        
     def nuevoCliente(self,IdE,Idpu):
+        son_diferentes=0
         aux = self.inicio 
         while aux!=None:
             if IdE== aux.IdEmpreza and Idpu==aux.idPunto: 
+                son_diferentes=1
                                 
                 print('---------------------------------------')
                 print('| ingrese sus datos para la solicitud |')
@@ -130,43 +135,60 @@ class listaSimpleInicial:
                 print('| se a agregado una nueva solicitud   |')
                 print('---------------------------------------')
             aux=aux.siguiente
-            self.idpu=Idpu
-            self.ide=IdE
-
-
-
-    
-    def mostrarEscritorios(self,p,o):
+            if son_diferentes==0:
+                print('---------------------------------------')
+                print('| no se encontro la empresa o punto   |')
+                print('---------------------------------------')
+            
+# optener todos los escritorios de la empreza pa compararlos y optenerlos 
+    def optEs(self,ides,idpu,toEs,nom):
+        file = open("d1.dot", "w", encoding='UTF-8')
+        text = 'digraph G{ \n'
+        text += 'node [ shape = box ]\n' 
         aux = self.inicio
+        
         while aux!=None:
-            if p==aux.IdEmpreza and o==aux.idPunto:
-                for x in range(4): 
-                    self.idemp.opteniendotodosEs(emp=p,j=o)
-                    a=self.idemp.getA()
-                    aux.InicialES.siexiste(id2=a)
-                    aux.InicialES.imprimir_lista()
-                       
-                    
+                      
+            if ides==aux.IdEmpreza and idpu==aux.idPunto:
+               aux.clientes.mostrarclientes()
+               cliente=aux.clientes.getText()  
+               aux.InicialES.imprimir_lista()
+               coA=aux.InicialES.getContar()
 
-                
             aux=aux.siguiente
+        text+='no'+'[ label="''nombre de la empreza: '+nom+'"]\n'
+        text+='pu'+'[ label="''puntos seleccionado: '+idpu+'"]\n'
+        text+='ac'+'[ label="''Escritorios activos: '+str(coA)+'" fillcolor="#ffbb3344"]\n'
+        text+='in'+'[ label="''Escritorios inactivos: '+str(toEs-coA)+'"fillcolor="red"]\n'
+        text+=cliente
+        text+='ac'+' -> '+'in'+'  [ style=invis ]'
+        text+='no'+' -> '+'pu'+'  [ style=invis ]'
+        text+='pu'+' -> '+'ac'+'  [ style=invis ]'
+        text+='in'+' -> '+'cli'+'  [ style=invis ]'
+        text += '\n}'
+        file.write(text)
+        file.close()
+        os.system('dot -Tpng d1.dot -o d1.png')
  
 
 
 
-
-
-
-
-
-
-
-    def mostrarEs(self):
+    
+    def ActivarEs(self,p,oo,cont2):
         aux = self.inicio
-        while aux!=None:
-            aux.InicialES.recorriendo()            
-            aux=aux.siguiente
         
+        while aux!=None:
+            #aux.clientes.mostrarclientes()
+            if p==aux.IdEmpreza and oo==aux.idPunto:
+                for x in range(cont2):
+                    self.idemp.opteniendotodosEs(emp=p,jo=oo)
+                    a=self.idemp.getA()
+                    
+                    aux.InicialES.siexiste(id2=a)
+                    aux.InicialES.imprimir_lista()                    
+            aux=aux.siguiente
+ 
+
 
 #escrotorios y clientes  muestro el ultimo escritorio y lo imprimo , aqui elimino  
     def ultimoEs(self,idpu,ide):        
@@ -174,21 +196,18 @@ class listaSimpleInicial:
        
         while aux!=None:
             if idpu== aux.IdEmpreza and ide==aux.idPunto:
-                for x in range(4):
-                    print('---------')
+                """for x in range(4): "                  
 
                     #quitar aux.clientes no va aqui 
                     aux.clientes.imprimirCliente() 
-                    aux.clientes.primerCli() 
-                
-                """ a=aux.InicialES.ultimoNodo().getId()
+                    aux.clientes.primerCli()"""                
+                a=aux.InicialES.ultimoNodo().getId()
                 print('desactivando escritorio',a)                
                 aux.InicialES.elimini(key=a)
-                aux.InicialES.imprimir_lista()"""               
-
+                aux.InicialES.imprimir_lista()  
             aux=aux.siguiente
 
-   
+    
 
 
 
