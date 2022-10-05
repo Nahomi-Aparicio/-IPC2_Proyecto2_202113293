@@ -1,10 +1,10 @@
 <listaEmpresas>
 <empresa id="BNR">
-<nombre> Banco de Desarrollo Rural </nombre>
+<nombre>Banco de Desarrollo Rural</nombre>
 <abreviatura> Banrural </abreviatura>
 <listaPuntosAtencion>
 <puntoAtencion id="VN">
-<nombre> Banrural Villa Nueva </nombre>
+<nombre>Banrural Villa Nueva</nombre>
 <direccion> Centro comercial zona 1 </direccion>
 <listaEscritorios>
 <escritorio id="B10">

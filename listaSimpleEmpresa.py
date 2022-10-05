@@ -11,8 +11,8 @@ class listaSimpleEmpreza:
         self.fin =  Empreza()
         
     def leyendo(self):
-        self.root ="prueba1.xml"
-        #self.root =filedialog.askopenfilename(title= "Abrir Archivo", filetypes=(("Xml","*.xml"),("Todos los archivos","*.*")))
+        #self.root ="prueba1.xml"
+        self.root =filedialog.askopenfilename(title= "Abrir Archivo", filetypes=(("Xml","*.xml"),("Todos los archivos","*.*")))
         if self.root != "":
             return self.root
         return None
@@ -189,6 +189,7 @@ class listaSimpleEmpreza:
             print(' ')
             aux.listaTrans.recorriendo()
             aux.listaPuntoAtencion.recorri()
+            
             aux=aux.siguiente
             
     def buscarEmpresaByNombre(self, nombri):
@@ -207,9 +208,19 @@ class listaSimpleEmpreza:
                 punti=input('Ingrese el ID del punto de atencion que desea buscar: ')                
                 aux.listaPuntoAtencion.buscarPuntoNombre(puntito=punti)
                 self.ContarES=aux.listaPuntoAtencion.getContarES()
+                aux.listaTrans.tiempo()
+                self.TiempoPromedio=aux.listaTrans.getPro()            
+                aux.listaTrans.tiempo_MAX()
+                self.TiempoMax=aux.listaTrans.getMax()
+
+                aux.listaTrans.tiempo_MIN()
+                self.TiempoMin=aux.listaTrans.getMin()
                 self.idEmpresa=aux.id
                 self.idPunto=punti
-            aux=aux.siguiente  
+            aux=aux.siguiente 
+            
+    def Tpromedio(self):
+        return self.TiempoPromedio 
 
     def getotroEs(self):
         return self.ContarES
@@ -224,6 +235,17 @@ class listaSimpleEmpreza:
 
     def lospuntos(self):
         return  self.idPunto
+
+    def TMIN(self):
+        return self.TiempoMin
+
+    def TMAX(self):
+        return self.TiempoMax
+
+  
+
+
+
 
     def mostri_trans(self,x):
         aux=self.inicio 

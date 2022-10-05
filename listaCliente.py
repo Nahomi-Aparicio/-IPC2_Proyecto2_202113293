@@ -35,6 +35,15 @@ class listaSimpleClientes:
             print('Nombre:',aux.nombre)           
             aux.transs.recorriendo()           
             print(' ')
+            aux=aux.siguiente 
+
+    def MostrarCli(self):
+        aux = self.inicio
+        print('-------cliente----------------')        
+        while aux!=None:            
+            
+            print('| DPI:',aux.dpi)
+            print('| Nombre:',aux.nombre)
             aux=aux.siguiente        
         
     
@@ -52,13 +61,10 @@ class listaSimpleClientes:
         return aux
     
     def mostrarclientes(self):
-        
         text = 'cli[shape=plaintext ,label =<<TABLE><TR><TD>CLIENTES EN LA COLA</TD></TR>'
         aux = self.inicio
-        while aux!=None:            
-            
+        while aux!=None:   
             text += '<TR><TD>'+'DPI:'+str(aux.dpi)+'  Nombre:'+str(aux.nombre)+'</TD></TR>'
-        
             aux=aux.siguiente
         text += '</TABLE>>];\n'
        

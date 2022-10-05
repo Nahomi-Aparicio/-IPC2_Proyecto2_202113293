@@ -31,11 +31,50 @@ class listaSimpleTranses:
     def tiempo(self):
         aux = self.inicio
         tiempo=0
+        cont=0
         while aux!=None:            
             tiempo=tiempo+int(aux.TiempoTra)
+            cont=cont+1
             aux=aux.siguiente
-        print(tiempo) 
+        ti=(tiempo/cont)
+        self.tiempoPro=ti
+
+    def getPro(self):
+        return self.tiempoPro
+
+
     
+    def tiempo_MAX(self):
+        aux = self.inicio
+        tiempo=0
+        tiempo=float(aux.TiempoTra)
+        while aux!=None: 
+            if float(aux.TiempoTra)>tiempo:
+                tiempo=float(aux.TiempoTra) 
+            aux=aux.siguiente
+        self.tiempoMax=tiempo
+
+    def getMax(self):
+        
+        return self.tiempoMax
+
+    def tiempo_MIN(self):
+        aux = self.inicio
+        tiempo=0
+        tiempo=float(aux.TiempoTra)
+        while aux!=None: 
+            if float(aux.TiempoTra)<tiempo:
+                tiempo=float(aux.TiempoTra) 
+            aux=aux.siguiente
+        self.tiempoMin=tiempo
+    
+    def getMin(self):
+        return self.tiempoMin
+        
+        
+    
+
+
     
         
     

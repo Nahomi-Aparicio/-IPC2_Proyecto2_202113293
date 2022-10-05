@@ -93,6 +93,10 @@ class listaSimpleInicial:
             print(' ')
             aux=aux.siguiente
         
+    def limpiar(self):
+            self.inicio = None
+            self.fin =  None
+
 
     def compararEscrito(self):
         aux=self.inicio
@@ -141,30 +145,46 @@ class listaSimpleInicial:
                 print('---------------------------------------')
             
 # optener todos los escritorios de la empreza pa compararlos y optenerlos 
-    def optEs(self,ides,idpu,toEs,nom):
+    def optEs(self,ides,idpu,toEs,nom,tp,tmax,tmin):
         file = open("d1.dot", "w", encoding='UTF-8')
         text = 'digraph G{ \n'
         text += 'node [ shape = box ]\n' 
         aux = self.inicio
-        
         while aux!=None:
-                      
             if ides==aux.IdEmpreza and idpu==aux.idPunto:
                aux.clientes.mostrarclientes()
                cliente=aux.clientes.getText()  
                aux.InicialES.imprimir_lista()
                coA=aux.InicialES.getContar()
-
+               print('------------------------------------------')
+               print('| empresa:'+nom+'           ')
+               print('| punto de atencion:'+idpu)
+               print('|tiempo de espera promedio: '+str(tp))
+               print('| tiempo maximo: '+str(tmax))
+               print('| tiempo minimo: '+str(tmin))
+               print('| cantidad de escritorios Activos: '+str(coA))
+               print('| cantidad de escritorios inactivos: '+str(toEs-coA))
+               print('--------------------------------------------')
+               aux.clientes.MostrarCli()
             aux=aux.siguiente
-        text+='no'+'[ label="''nombre de la empreza: '+nom+'"]\n'
-        text+='pu'+'[ label="''puntos seleccionado: '+idpu+'"]\n'
-        text+='ac'+'[ label="''Escritorios activos: '+str(coA)+'" fillcolor="#ffbb3344"]\n'
-        text+='in'+'[ label="''Escritorios inactivos: '+str(toEs-coA)+'"fillcolor="red"]\n'
+        text+='no'+'[ label="''nombre de la empreza: '+nom+'"style="filled", fillcolor="#ffbb3344"]\n'
+        text+='pu'+'[ label="''puntos seleccionado: '+idpu+'"style="filled", fillcolor="#ffbb3344"]\n'
+        text+='ac'+'[ label="''Escritorios activos: '+str(coA)+'"style="filled", fillcolor="green"]\n'
+        text+='in'+'[ label="''Escritorios inactivos: '+str(toEs-coA)+'"style="filled",fillcolor="red"]\n'
+        text+='ti'+'[ label="''tipo promedio de espera: '+str(tp)+'"style="filled", fillcolor="#ffbb3344"]\n'
+        text+='tip'+'[ label="''tiempo maximode espera: '+str(tmax)+'"style="filled",fillcolor="#ffbb3344"]\n'
+        text+='tm'+'[ label="''tiempo minimode espera: '+str(tmin)+'"style="filled",fillcolor="#ffbb3344"]\n'
+
         text+=cliente
-        text+='ac'+' -> '+'in'+'  [ style=invis ]'
-        text+='no'+' -> '+'pu'+'  [ style=invis ]'
-        text+='pu'+' -> '+'ac'+'  [ style=invis ]'
-        text+='in'+' -> '+'cli'+'  [ style=invis ]'
+        text+='ac'+' -> '+'in'+'  [ style=invis ]\n'
+        text+='no'+' -> '+'pu'+'  [ style=invis ]\n'
+
+        text+='pu'+' -> '+'ac'+'  [ style=invis ]\n'
+        text+='in'+' -> '+'cli'+'  [ style=invis ]\n'
+        text+='cli'+' -> '+'ti'+'  [ style=invis ]\n'
+        text+='ti'+' -> '+'tip'+'  [ style=invis ]\n'
+        text+='ti'+' -> '+'tm'+'  [ style=invis ]\n'
+        
         text += '\n}'
         file.write(text)
         file.close()

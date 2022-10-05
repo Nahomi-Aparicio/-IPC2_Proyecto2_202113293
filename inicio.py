@@ -1,4 +1,5 @@
 
+from tkinter import filedialog
 from xml.dom import minidom as MD
 
 from Escritorio import Escritorio
@@ -51,6 +52,9 @@ class Menu:
                 self.ID=Emp.lasEmpresas()
                 self.pu=Emp.lospuntos()
                 self.TEs=Emp.getotroEs()
+                self.tP=Emp.Tpromedio() 
+                self.TMax=Emp.TMAX()
+                self.TMin=Emp.TMIN()
                 
                     
             elif elegir==3:
@@ -77,15 +81,15 @@ class Menu:
             elegir= int(input('ingrese una opcion:'))
             if elegir==1:
                 Emp.limpiar()
+                ini.limpiar()
                 print('------------------------')
                 print('| El sistema se limpio |')
                 print('------------------------')
             elif elegir==2:
                 Emp.leyendo()
                 Emp.Configsis()
-               
-                
-                               
+                Emp.recorriendo()
+                 
             elif elegir==3:
                 Emp.creadando_Empreza()
                 pass
@@ -120,7 +124,8 @@ class Menu:
                 #falta mucho :c
                 ides1=Emp.lasEmpresas()
                 idpu2=Emp.lospuntos()                
-                ini.optEs(ides1,idpu2,self.TEs,nom=self.nombre)
+            
+                ini.optEs(ides=ides1,idpu=idpu2,toEs=self.TEs,nom=self.nombre,tp=self.tP,tmax=self.TMax,tmin=self.TMin)
                 
             elif elegir==2:
                 self.cont1=1
@@ -148,9 +153,9 @@ class Menu:
                 print('escriba una opcion valida')
 
     def leyendo2(self):
-        self.root2 ="prueba2.xml"      
+        #self.root2 ="prueba2.xml"      
        
-        #self.root2 = filedialog.askopenfilename(title= "Abrir Archivo", filetypes=(("Xml","*.xml"),("Todos los archivos","*.*")))
+        self.root2 = filedialog.askopenfilename(title= "Abrir Archivo", filetypes=(("Xml","*.xml"),("Todos los archivos","*.*")))
         if self.root2 != "":
             return self.root2        
         return None
