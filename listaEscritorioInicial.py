@@ -27,9 +27,6 @@ class escritoriosActivos:
             self.fin.siguiente = NuevoInicial
             self.fin = NuevoInicial
 
-
-   
-
     
     def recorriendo(self):
         cotact=0
@@ -38,12 +35,7 @@ class escritoriosActivos:
             
             aux.idEscritorio
             aux=aux.siguiente
-       
-
-    
-
-            
-    
+           
     def ultimoNodo(self):
         aux = self.inicio       
         while aux.siguiente != None:            
@@ -73,6 +65,7 @@ class escritoriosActivos:
             aux=aux.siguiente
         print('\n')
         self.contact=cotact
+        
     def getContar(self):
         return self.contact
 

@@ -74,8 +74,6 @@ class listaSimpleEmpreza:
         else:
             self.fin.siguiente = NuevoEmpreza
             self.fin = NuevoEmpreza
-
-
               
     def creadando_Empreza(self):
         print("═════════════════════════")        
@@ -176,9 +174,7 @@ class listaSimpleEmpreza:
             print('| ID ya existe, empreza existente |')
             print('|        Empreza no creada        |')
             print('-----------------------------------')
-   
- 
-        
+           
     def recorriendo(self):
         aux = self.inicio
         while aux!=None:            
@@ -224,8 +220,7 @@ class listaSimpleEmpreza:
 
     def getotroEs(self):
         return self.ContarES
-     
-
+   
     def limpiar(self):
             self.inicio = None
             self.fin =  None
@@ -242,11 +237,6 @@ class listaSimpleEmpreza:
     def TMAX(self):
         return self.TiempoMax
 
-  
-
-
-
-
     def mostri_trans(self,x):
         aux=self.inicio 
                
@@ -255,7 +245,7 @@ class listaSimpleEmpreza:
             if x==aux.id:
                 aux.listaTrans.recorriendo()
             aux=aux.siguiente
-            
+           
 
     def buscaNombre(self,pi,k):
         aux= self.inicio        

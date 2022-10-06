@@ -1,11 +1,11 @@
 digraph G{ 
 node [ shape = box ]
-no[ label="nombre de la empreza:  Banco de Desarrollo Rural "style="filled", fillcolor="#ffbb3344"]
-pu[ label="puntos seleccionado: VN"style="filled", fillcolor="#ffbb3344"]
-ac[ label="Escritorios activos: 2"style="filled", fillcolor="green"]
+no[ label="nombre de la empreza:  Claro "style="filled", fillcolor="#ffbb3344"]
+pu[ label="puntos seleccionado: AMTLN"style="filled", fillcolor="#ffbb3344"]
+ac[ label="Escritorios activos: 4"style="filled", fillcolor="green"]
 in[ label="Escritorios inactivos: 0"style="filled",fillcolor="red"]
-ti[ label="tipo promedio de espera: 8.833333333333334"style="filled", fillcolor="#ffbb3344"]
-tip[ label="tiempo maximode espera: 15.0"style="filled",fillcolor="#ffbb3344"]
+ti[ label="tipo promedio de espera: 8.25"style="filled", fillcolor="#ffbb3344"]
+tip[ label="tiempo maximode espera: 10.0"style="filled",fillcolor="#ffbb3344"]
 tm[ label="tiempo minimode espera: 5.0"style="filled",fillcolor="#ffbb3344"]
 cli[shape=plaintext ,label =<<TABLE><TR><TD>CLIENTES EN LA COLA</TD></TR><TR><TD>DPI:2933151161111  Nombre: Arturito </TD></TR><TR><TD>DPI:2933151162222  Nombre: Bill Gates </TD></TR><TR><TD>DPI:2933151163333  Nombre: Dante </TD></TR><TR><TD>DPI:2933151164444  Nombre: Freddie Mercuri </TD></TR><TR><TD>DPI:29331511655555  Nombre: Henry Ford </TD></TR></TABLE>>];
 ac -> in  [ style=invis ]

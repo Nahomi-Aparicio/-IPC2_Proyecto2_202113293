@@ -15,8 +15,6 @@ class ListaSimpleAtencion:
             self.fin.siguiente = NuevoPuntoAtencion
             self.fin = NuevoPuntoAtencion
 
-   
-
     def recorri (self):
         aux = self.inicio
         while aux!=None:
@@ -46,10 +44,6 @@ class ListaSimpleAtencion:
 
     def getContarES(self):
         return self.contarEsc
-
-    
-                    
-                
 
     def buscarNombre(self,p):
         aux= self.inicio

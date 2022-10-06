@@ -26,7 +26,6 @@ class listaSimpleClientes:
             self.fin.siguiente = NuevoInicial
             self.fin = NuevoInicial
 
-
     def recorriendo(self):
         aux = self.inicio        
         while aux!=None:            
@@ -45,9 +44,7 @@ class listaSimpleClientes:
             print('| DPI:',aux.dpi)
             print('| Nombre:',aux.nombre)
             aux=aux.siguiente        
-        
-    
-
+       
     def imprimirCliente(self):
         nodo=self.inicio
         while nodo!=None:            

@@ -1,31 +1,14 @@
-
 from tkinter import filedialog
-from xml.dom import minidom as MD
-
-from Escritorio import Escritorio
-from ListaSimpEscritorio import ListaSimpleEscritorio
 from listaSimpleEmpresa import  listaSimpleEmpreza
-from Empresa import Empreza
-from puntoA import PuntoAtencion
-
-
-
 from listasimpleInicial import listaSimpleInicial
-from listaEscritorioInicial import escritorioActivo
-
-from Escritorio import Escritorio
 Emp=listaSimpleEmpreza()
 ini=listaSimpleInicial(Emp)
-
-
 class Menu:
     def __init__(self):
         self.root=None
         self.root2=None
         self.cont1=0
-       
-        
-
+      
     def Menu(self):
          while True:
             print("")
@@ -103,6 +86,7 @@ class Menu:
                 self.Menu()
             else:
                 print('escriba una opcion valida')
+
     def ManejoMenu(self):
         while True:
             print("")
@@ -166,9 +150,7 @@ class Menu:
             return self.root
         return None
 
-  
-                               
-                               
+                            
     
 Menu().Menu()
 

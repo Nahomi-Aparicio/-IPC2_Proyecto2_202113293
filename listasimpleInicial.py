@@ -1,6 +1,7 @@
 
 
 import os
+import webbrowser
 from xml.dom import minidom as MD
 from Escritorio import Escritorio
 from listadoInicial import Inicial
@@ -97,10 +98,8 @@ class listaSimpleInicial:
             self.inicio = None
             self.fin =  None
 
-
     def compararEscrito(self):
         aux=self.inicio
-
    
  #ya esta agregar nuevo cliente        
     def nuevoCliente(self,IdE,Idpu):
@@ -188,12 +187,9 @@ class listaSimpleInicial:
         text += '\n}'
         file.write(text)
         file.close()
-        os.system('dot -Tpng d1.dot -o d1.png')
- 
-
-
-
-    
+        os.system('dot -Tpdf d1.dot -o d1.pdf')
+        webbrowser.open_new_tab('d1.pdf')
+     
     def ActivarEs(self,p,oo,cont2):
         aux = self.inicio
         
@@ -208,8 +204,6 @@ class listaSimpleInicial:
                     aux.InicialES.imprimir_lista()                    
             aux=aux.siguiente
  
-
-
 #escrotorios y clientes  muestro el ultimo escritorio y lo imprimo , aqui elimino  
     def ultimoEs(self,idpu,ide):        
         aux = self.inicio
