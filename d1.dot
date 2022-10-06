@@ -1,13 +1,13 @@
 digraph G{ 
 node [ shape = box ]
-no[ label="nombre de la empreza: Elektra"style="filled", fillcolor="#ffbb3344"]
-pu[ label="puntos seleccionado: punto1"style="filled", fillcolor="#ffbb3344"]
-ac[ label="Escritorios activos: 2"style="filled", fillcolor="green"]
+no[ label="nombre de la empreza:  Claro "style="filled", fillcolor="#ffbb3344"]
+pu[ label="puntos seleccionado: AMTLN"style="filled", fillcolor="#ffbb3344"]
+ac[ label="Escritorios activos: 3"style="filled", fillcolor="green"]
 in[ label="Escritorios inactivos: 1"style="filled",fillcolor="red"]
-ti[ label="tipo promedio de espera: 12.5"style="filled", fillcolor="#ffbb3344"]
-tip[ label="tiempo maximode espera: 15.0"style="filled",fillcolor="#ffbb3344"]
-tm[ label="tiempo minimode espera: 10.0"style="filled",fillcolor="#ffbb3344"]
-cli[shape=plaintext ,label =<<TABLE><TR><TD>CLIENTES EN LA COLA</TD></TR><TR><TD>DPI:3004379830101  Nombre:Adolfo</TD></TR><TR><TD>DPI:3406359830101  Nombre:Sofia</TD></TR><TR><TD>DPI:3408359830101  Nombre:Carlos</TD></TR><TR><TD>DPI:3848359830101  Nombre:Alejandra</TD></TR></TABLE>>];
+ti[ label="tipo promedio de espera: 8.25"style="filled", fillcolor="#ffbb3344"]
+tip[ label="tiempo maximode espera: 10.0"style="filled",fillcolor="#ffbb3344"]
+tm[ label="tiempo minimode espera: 5.0"style="filled",fillcolor="#ffbb3344"]
+cli[shape=plaintext ,label =<<TABLE><TR><TD>CLIENTES EN LA COLA</TD></TR><TR><TD>DPI:2933151161111  Nombre: Arturito </TD></TR><TR><TD>DPI:2933151162222  Nombre: Bill Gates </TD></TR><TR><TD>DPI:2933151163333  Nombre: Dante </TD></TR><TR><TD>DPI:2933151164444  Nombre: Freddie Mercuri </TD></TR><TR><TD>DPI:29331511655555  Nombre: Henry Ford </TD></TR></TABLE>>];
 ac -> in  [ style=invis ]
 no -> pu  [ style=invis ]
 pu -> ac  [ style=invis ]
