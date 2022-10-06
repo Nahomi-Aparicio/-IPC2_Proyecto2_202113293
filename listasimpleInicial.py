@@ -97,7 +97,10 @@ class listaSimpleInicial:
     def limpiar(self):
             self.inicio = None
             self.fin =  None
-
+            self.inicio = Inicial()
+            self.fin =  Inicial()
+            
+   
     def compararEscrito(self):
         aux=self.inicio
    

@@ -65,6 +65,7 @@ class Menu:
             if elegir==1:
                 Emp.limpiar()
                 ini.limpiar()
+                
                 print('------------------------')
                 print('| El sistema se limpio |')
                 print('------------------------')
@@ -151,7 +152,12 @@ class Menu:
         return None
 
                             
-    
-Menu().Menu()
+class Main:
+    def __init__(self):
+        self.Menu=Menu()
+        self.Menu.Menu()    
+
+if __name__ == "__main__":
+    Main()
 
         

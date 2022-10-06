@@ -224,6 +224,9 @@ class listaSimpleEmpreza:
     def limpiar(self):
             self.inicio = None
             self.fin =  None
+            self.__init__()
+        
+        
  
     def lasEmpresas(self):
         return self.idEmpresa
